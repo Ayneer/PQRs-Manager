@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "f54416c9-d069-4766-925c-5fa5468e6e01",
+		"name": "BTG-PACTUAL-PQR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE A USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"username to test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE A PQRs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"62125f1ca4061d53b343a175\",\r\n    \"type\": \"REQUEST\",\r\n    \"body\": \"No puedo acceder a la VPN de la empresa de forma remota!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pqr",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pqr"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6211c3a751b8a529f9aaa0f9",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Crea una solicitud basada en dos tipos ( REQUEST = petición, COMPLAIN = queja ) y se debe declarar el contenido de la misma en el body"
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER ADMIN RESPONSE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Debe instalar el plugin enviado a su correo electronico, buen día.",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pqr/admin-response?filingNumber=REQUEST%2362125f1ca4061d53b343a175%231645393128748",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pqr",
+						"admin-response"
+					],
+					"query": [
+						{
+							"key": "filingNumber",
+							"value": "REQUEST#62125f1ca4061d53b343a175#1645393128748"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER CLAIM",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Aún estoy esperando el correo, por favor verificar que sea el correcto; example@example.com.",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pqr/claim?filingNumber=REQUEST%2362125f1ca4061d53b343a175%231645393128748",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pqr",
+						"claim"
+					],
+					"query": [
+						{
+							"key": "filingNumber",
+							"value": "REQUEST#62125f1ca4061d53b343a175#1645393128748"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PQR BY USER AND FILING NUMBER ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pqr/62125f1ca4061d53b343a175?filingNumber=COMPLAIN%2362125f1ca4061d53b343a175%231645378802265",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pqr",
+						"62125f1ca4061d53b343a175"
+					],
+					"query": [
+						{
+							"key": "filingNumber",
+							"value": "COMPLAIN#62125f1ca4061d53b343a175#1645378802265"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CLAIM",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pqr/claim/62125f1ca4061d53b343a175?filingNumber=CLAIM%231645372227180",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pqr",
+						"claim",
+						"62125f1ca4061d53b343a175"
+					],
+					"query": [
+						{
+							"key": "filingNumber",
+							"value": "CLAIM#1645372227180"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FIRST USER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/first",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"first"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
