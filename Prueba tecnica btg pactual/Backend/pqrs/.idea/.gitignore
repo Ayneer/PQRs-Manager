@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Users\Ayneer Luis Gonzalez\Desktop\Projectos de Pruebas Tecnicas de selección\PQRs-Manager\Prueba tecnica btg pactual\Backend\pqrs\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
