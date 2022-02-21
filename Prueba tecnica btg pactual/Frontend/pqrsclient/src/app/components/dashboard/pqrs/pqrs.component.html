@@ -1,0 +1,25 @@
+<div class="ms-5 me-5 mt-5">
+  <h1>Sistema de gestión PQRs</h1>
+  <br>
+
+  <p>Hola, la compañia ha dejado este sistema para su uso, el cual le permitirá realizar PQRs de tipo <strong>Petición,
+      Queja o Reclamo.</strong></p>
+  <p>También podrá hacer consultas sobre las PQRs realizadas, solo debe tener el <strong>número de radicado</strong>,
+    entregado al final de cada creación.</p>
+  <p><strong>Nota:</strong> Solo se puede registrar un reclamo sobre una petición o queja realizada hace más de 5 días,
+    o que tenga respuesta del área administrativa.</p>
+  <hr>
+  <br>
+
+  <button id="newRequest" class="btn btn-link" [disabled]="searchingPqr" (click)="handleChangeAction()">Cambiar a
+    {{btnTitle}}</button>
+
+  <ng-container *ngIf="btnTitle===SEARCH_REQUEST">
+    <app-createpqrs [user]="user"></app-createpqrs>
+  </ng-container>
+
+  <ng-container *ngIf="btnTitle===NEW_REQUEST">
+    <app-searchpqrs [user]="user"></app-searchpqrs>
+  </ng-container>
+
+</div>

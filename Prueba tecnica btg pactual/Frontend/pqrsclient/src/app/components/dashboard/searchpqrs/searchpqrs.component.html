@@ -1,0 +1,42 @@
+<div class="mt-3 animate__animated animate__backInRight">
+
+  <label for="searchRequest" class="form-label">
+    <strong>Buscar solicitud (Petición, Queja o Reclamo) por número de radicado</strong>
+  </label>
+
+  <form class="row">
+
+    <div class="col-auto">
+      <select class="form-select" [(ngModel)]="pqrTypeSelected" name="pqrTypes" [disabled]="searchingPqr">
+        <option value="0">Seleccione una opción</option>
+        <option *ngFor="let item of pqrTypes" value={{item.value}}>{{item.name}}</option>
+      </select>
+    </div>
+
+    <div class="col-auto">
+      <input type="text" class="form-control" id="searchRequest" placeholder="Número de radicado"
+        name="filingNumber" [(ngModel)]="filingNumber" [disabled]="searchingPqr">
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" id="btn-search-request" class="btn btn-primary" (click)="searchPqr()"
+        [disabled]="searchingPqr">Buscar</button>
+    </div>
+
+  </form>
+
+  <div *ngIf="pqr!==null">
+    <p class="mt-5"><strong>Petición: </strong>{{pqr.body}}</p>
+    <p><strong>Número de radicado: </strong>{{pqr.filingNumber}}</p>
+    <p><strong>Fecha de creación: </strong>{{pqr.createdAt}}</p>
+    <p><strong>Tipo: </strong>{{castPqrType(pqr.type)}}</p>
+    <hr>
+    <p *ngIf="pqr.adminResponse"><strong>Respuesta de la administración: </strong>{{pqr.adminResponse.body}}</p>
+    <p *ngIf="pqr.adminResponse"><strong>Fecha de respuesta: </strong>{{pqr.adminResponse.createdAt}}</p>
+    <hr>
+    <p *ngIf="pqr.claim"><strong>Reclamo: </strong>{{pqr.claim.body}}</p>
+    <p *ngIf="pqr.claim"><strong>Número de radicado: </strong>{{pqr.claim.filingNumber}}</p>
+    <p *ngIf="pqr.claim"><strong>Fecha de creación: </strong>{{pqr.claim.createdAt}}</p>
+  </div>
+
+</div>

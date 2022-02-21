@@ -1,0 +1,10 @@
+<div>
+  <ng-container *ngIf="loading">
+    <h1>Por favor espere, cargando...</h1>
+  </ng-container>
+
+  <ng-container *ngIf="!loading">
+    <app-nav-bar [user]="user"></app-nav-bar>
+    <app-pqrs [user]="user"></app-pqrs>
+  </ng-container>
+</div>
